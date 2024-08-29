@@ -26,7 +26,11 @@ def find_nearby_cities(df):
     for i, row in df.iterrows():
         city_lat = math.radians(row['lat'])
         city_lon = math.radians(row['lng'])
-        cities_nearby = []
+        
+        if row['city_name'] in cities and cities[row['city_name']] != []:
+            cities_nearby = cities[row['city_name']]
+        else:
+            cities_nearby = []
     
         for j in range(i + 1, len(df)):
             compared_city_row = df.iloc[j]
