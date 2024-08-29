@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Cities</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nearby Cities</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>City Name</th>
+                <th>Nearby Cities</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for city, nearby_cities in result.items() %}
+                <tr>
+                    <td>{{ city }}</td>
+                    <td>
+                        <ul>
+                            {% for nearby_city in nearby_cities %}
+                                <li>City Name: {{ nearby_city }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
